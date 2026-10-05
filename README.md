@@ -1,6 +1,6 @@
 # 🏞️ Ketapang Raya – Website Profil Desa & Custom CMS Engine
 
-🌐 **Live Website:** [https://ketapangraya.desa.id](https://ketapangraya.desa.id) *(Sesuaikan dengan URL asli website)*  
+🌐 **Live Website:** [https://ketapangraya.desa.id](https://ketapangraya.site)
 💻 **Source Code:** [https://github.com/Bagasadinata321/website-desa-ketapangraya](https://github.com/Bagasadinata321/website-desa-ketapangraya)
 
 Platform sistem informasi publik dan Content Management System (CMS) terintegrasi untuk Desa Ketapang Raya. Bertenagakan **PHP Native MVC** yang dikembangkan dari nol tanpa framework pihak ketiga, aplikasi ini memudahkan pengelolaan data potensi desa, destinasi ekowisata, produk UMKM, hingga struktur organisasi desa secara dinamis.
