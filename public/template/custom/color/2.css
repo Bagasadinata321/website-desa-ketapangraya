@@ -1,0 +1,104 @@
+/* ============================================================
+   DIGINVITE — TEMA 2: Ivory Romance
+   Terang, bersih, elegan. Aksen burgundy & krem hangat.
+   Target: pasangan yang ingin kesan feminin & romantis siang hari.
+   ============================================================ */
+
+:root {
+  /* Aksen */
+  --accent: #8b2252;
+  --accent-muted: #8b225255;
+  --accent-subtle: #8b225215;
+  --accent-hover-bg: #8b2252;
+  --accent-hover-fg: #ffffff;
+
+  /* Background — terang, krem & putih gading */
+  --bg-loading: #f5ede0;
+  --bg-darkest: #e8d8c8;
+  --bg-dark: #f0e4d4;
+  --bg-light: #faf5ee;
+  --bg-white: #ffffff;
+  --bg-input: #f0e8dc;
+  --bg-card: #fff8f2;
+
+  /* Overlay */
+  --overlay-heavy: rgba(60, 20, 30, 0.65);
+  --overlay-medium: rgba(60, 20, 30, 0.5);
+  --overlay-light: rgba(60, 20, 30, 0.15);
+
+  /* Teks */
+  --text-primary: #ffffff;
+  --text-secondary: #f0ddd5;
+  --text-muted: #6b3545;
+  --text-subtle: #9a6070;
+  --text-dark: #2a1015;
+  --text-black: #1a0810;
+  --text-year: rgba(139, 34, 82, 0.1);
+
+  /* Border */
+  --border-light: rgba(255, 255, 255, 0.45);
+  --border-dark: rgba(139, 34, 82, 0.2);
+  --border-mid: #d4b0b8;
+
+  /* Timeline */
+  --timeline-track: #d4b0b8;
+  --timeline-fill: #8b2252;
+  --circle-bg: #ffffff;
+  --circle-border: #d4b0b8;
+  --circle-color: #8b2252;
+  --circle-active-bg: #8b2252;
+  --circle-active-fg: #ffffff;
+  --circle-active-border: #6a1a3e;
+
+  /* Tanggal side */
+  --tanggal-bg: #8b2252;
+  --tanggal-fg: #ffffff;
+  --tanggal-dot: rgba(255, 255, 255, 0.5);
+
+  /* Countdown */
+  --countdown-bg: rgba(60, 20, 30, 0.55);
+  --countdown-box: rgba(80, 30, 45, 0.65);
+  --countdown-border: rgba(255, 255, 255, 0.3);
+
+  /* Ucapan */
+  --ucapan-avatar-bg: #faf5ee;
+  --ucapan-avatar-border: #8b2252;
+  --ucapan-avatar-fg: #8b2252;
+  --ucapan-content-bg: #fff8f2;
+  --ucapan-nama-color: #8b2252;
+  --ucapan-pesan-color: #5a3040;
+
+  /* Gift card */
+  --gift-card-bg: #fff8f2;
+  --gift-card-border: #8b225255;
+  --gift-deco-border: #8b225215;
+  --gift-bank-color: #8b2252;
+  --gift-rek-color: #2a1015;
+  --gift-an-color: #9a6070;
+
+  /* Section backgrounds */
+  --sec-dark-bg: #2a1015;
+  --sec-dark-fg: #faf5ee;
+  --sec-cream-bg: #faf5ee;
+  --sec-gold-bg: #f0e4d4;
+  --sec-gold-fg: #2a1015;
+
+  /* Section title */
+  --section-title-color: #2a1015;
+
+  /* Gallery */
+  --gallery-bg: #1a0810;
+
+  /* RSVP & Ucapan section */
+  --rsvp-section-bg: #ffffff;
+  --rsvp-desc-color: #2a1015;
+  --rsvp-input-bg: #f0e8dc;
+  --rsvp-input-border: #d4b0b8;
+  --rsvp-input-color: #2a1015;
+  --rsvp-btn-border: #8b2252;
+  --rsvp-btn-color: #8b2252;
+
+  /* Dekorasi */
+  --cmp-panggilan-color: #8b2252;
+  --divider-line-color: #8b2252;
+}

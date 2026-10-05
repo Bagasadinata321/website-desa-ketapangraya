@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+b {
+  font-weight: bolder;
+  font-size: larger;
+}
+
+body {
+  cursor: default;
+  background: black;
+}
+main {
+  width: 100%;
+  max-width: 450px;
+  min-height: 100vh;
+  color: black;
+  background: white;
+}
+.wrapper {
+  max-width: 450px;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+}
+.layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+  overflow-y: auto;
+  /* Firefox */
+  scrollbar-width: none;
+
+  /* IE */
+  -ms-overflow-style: none;
+  visibility: hidden;
+}
+
+/* Chrome, Safari */
+.layer::-webkit-scrollbar {
+  display: none;
+}
+
+/* layer aktif */
+.layer.active {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.cover-wrap {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background: #f5efe6;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.photo-area {
+  width: 100%;
+  height: 70vh;
+  background: #3d2415;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  background: linear-gradient(180deg, #4a2e1a 0%, #2c1810 100%);
+}
+.photo-placeholder img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  max-width: 450px;
+}
+
+.photo-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(196, 168, 130, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-label {
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: rgba(196, 168, 130, 0.5);
+  text-transform: uppercase;
+}
+
+.warm-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, transparent, rgba(44, 24, 16, 0.7));
+}
+
+.content-area {
+  height: 30vh;
+  width: 100%;
+  flex: 1;
+  background: #f5efe6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 24px;
+  position: relative;
+}
+
+.content-area::before {
+  content: "";
+  position: absolute;
+  top: -32px;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background: linear-gradient(
+    to top,
+    rgb(245, 239, 230),
+    rgba(245, 239, 230, 0.2),
+    transparent
+  );
+  pointer-events: none;
+}
+
+.tag-wedding {
+  font-family: "Jost", sans-serif;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #9c7d60;
+}
+
+.names {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 36px;
+  font-weight: 300;
+  font-style: italic;
+  color: #3d2415;
+  line-height: 1.05;
+  text-align: end;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+.ampersand {
+  display: block;
+  font-size: 36px;
+  color: #c4a882;
+  line-height: 1.1;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 8px;
+}
+
+.divider-line {
+  width: 36px;
+  height: 0.5px;
+  background: #c4a882;
+}
+
+.divider-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #c4a882;
+}
+
+.date-text {
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  color: #9c7d60;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+}
+.guest-area {
+  text-align: center;
+  margin: 0 0 10px;
+}
+
+.kepada {
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: #b8997a;
+  margin: 0 0 4px;
+}
+
+.guest-name {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #5c3d2e;
+  margin: 0;
+}
+
+.btn-buka {
+  font-family: "Jost", sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #f5efe6;
+  background: #5c3d2e;
+  border: none;
+  border-radius: 2px;
+  padding: 6px 40px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 260px;
+  transition: transform 0.3s ease;
+}
+.btn-buka:hover {
+  transform: scale(0.9);
+}

@@ -1,0 +1,288 @@
+:root {
+  /* ── PRIMARY (Pink) ── */
+  --color-primary-light: #ffd6e0;
+  --color-primary: #ffb3c6;
+  --color-primary-dark: #ff85a1;
+
+  /* ── ACCENT (Sage Green) ── */
+  --color-accent-light: #d9ecd5;
+  --color-accent: #b5d5af;
+  --color-accent-dark: #8fba88;
+
+  /* ── BACKGROUND ── */
+  --color-bg-base: #fff8fa;
+  --color-bg-surface: #fff0f4;
+  --color-bg-overlay: rgba(255, 179, 198, 0.15);
+
+  /* ── TEXT ── */
+  --color-text-primary: #4a2d35;
+  --color-text-secondary: #7d5260;
+  --color-text-muted: #b48a96;
+  --color-text-inverse: #ffffff;
+
+  /* ── BORDER ── */
+  --color-border: #f2c4d0;
+  --color-border-strong: #e89bad;
+  --color-border-focus: #ff85a1;
+
+  /* ── NEUTRAL ── */
+  --color-gray-100: #fdf5f7;
+  --color-gray-300: #edd9de;
+  --color-gray-500: #c4a0a9;
+  --color-gray-700: #7d5260;
+  --color-gray-900: #3d1f28;
+
+  /* ── GRADIENT PINK ── */
+  --gradient-pink-to-right: linear-gradient(to right, #ffb3c6, transparent);
+  --gradient-pink-to-left: linear-gradient(to left, #ffb3c6, transparent);
+  --gradient-pink-to-bottom: linear-gradient(to bottom, #ffb3c6, transparent);
+  --gradient-pink-to-top: linear-gradient(to top, #ffb3c6, transparent);
+  --gradient-pink-radial: radial-gradient(circle, #ffb3c6, transparent);
+
+  /* ── GRADIENT SAGE ── */
+  --gradient-sage-to-right: linear-gradient(to right, #b5d5af, transparent);
+  --gradient-sage-to-left: linear-gradient(to left, #b5d5af, transparent);
+  --gradient-sage-to-bottom: linear-gradient(to bottom, #b5d5af, transparent);
+  --gradient-sage-to-top: linear-gradient(to top, #b5d5af, transparent);
+  --gradient-sage-radial: radial-gradient(circle, #b5d5af, transparent);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: "Jost", sans-serif;
+}
+
+body {
+  background: white;
+  cursor: default;
+  color: black !important;
+}
+
+main {
+  width: 100%;
+  max-width: 430px;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.wrapper {
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: white;
+}
+.layer1 {
+  max-width: 430px;
+  position: Fixed;
+  inset: 0;
+  transition: opacity 0.6s ease;
+}
+
+/* layer aktif */
+.layer.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.cover-bawah,
+.cover-atas {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
+.cover-atas {
+  padding: 20px;
+  background: var(--gradient-pink-to-bottom);
+}
+
+.cover-bawah {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  bottom: 0;
+  padding: 50px;
+  background: var(--gradient-sage-to-top);
+}
+
+.cover-bawah button {
+  cursor: pointer;
+  border: none;
+  color: var(--color-bg-surface);
+  background: var(--color-primary);
+  padding: 4px;
+  border-radius: 6px;
+  width: 80%;
+  transition: all 0.4s ease;
+}
+
+.cover-bawah button:hover {
+  background: var(--color-primary-dark);
+}
+.font-great {
+  font-family: "Great Vibes", cursive;
+}
+.font-dancing {
+  font-family: "Dancing Script", cursive;
+}
+.font-play {
+  font-family: "Playfair Display", cursive;
+}
+.font-cinzel {
+  font-family: "Cinzel", serif;
+}
+
+.font-sacremento {
+  font-family: "Sacramento", cursive;
+}
+
+.layer2 {
+  position: relative;
+  min-height: 200vh;
+  z-index: 100;
+  width: 100%;
+  overflow: visible;
+  text-align: center;
+  /*opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
+  transition: transform 2s ease; */
+}
+.layer2.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(60vh);
+  scroll-behavior: smooth;
+}
+
+section {
+  background: var(--color-primary);
+}
+.countdown-container {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.countdown {
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+  color: var(--color-border-focus);
+  border: 1px solid var(--color-bg-surface);
+  /* color-mix — tanpa perlu ubah format variabel */
+  background: color-mix(in srgb, var(--color-accent-light) 60%, transparent);
+  backdrop-filter: blur(10px);
+}
+.cm-container {
+  background: var(--color-primary);
+  padding: 10px;
+}
+.cm-card {
+  text-align: left;
+  display: flex;
+  position: relative;
+  border-radius: 16px;
+  background-color: var(--color-accent);
+  color: var(--color-gray-900);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.12),
+    0 1px 6px rgba(0, 0, 0, 0.08);
+}
+.cm-card.pria {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+.cm-info {
+  padding: 10px 20px 10px;
+  width: 55%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+.cm-info .title {
+  color: var(--color-accent-light);
+  transform: rotate(-2deg);
+  font-size: 30px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+.cm-info .nickname {
+  font-weight: bolder;
+  letter-spacing: 2px;
+  font-size: 30px;
+}
+.fullname,
+.parents {
+  font-style: italic;
+  color: var(--color-border-focus);
+}
+.cm-info .medsos {
+  border: none;
+  border-radius: 4px;
+  padding: 2px 6px;
+  margin: 0 auto;
+  background: var(--color-gray-100);
+  color: var(--color-border-focus);
+  transition: transform 0.3s ease;
+}
+.cm-info .medsos:hover {
+  transform: translateY(-3px);
+}
+.cm-info {
+}
+
+.cm-photo-wrap {
+  width: 55%; /* overlap dengan info */
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.cm-photo-wrap.pria {
+  right: unset;
+  left: 0;
+}
+.cm-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* gradient di atas foto, bukan di info */
+.cm-photo-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to right,
+    var(--color-accent) 0%,
+    transparent 60%
+  );
+}
+
+.cm-photo-wrap.pria::before {
+  background: linear-gradient(to left, var(--color-accent) 0%, transparent 60%);
+}
+.triangle {
+  width: 100%;
+  height: 100px;
+  background: var(--color-primary);
+  clip-path: polygon(0% 100%, 50% 20%, 100% 100%);
+
+  filter: drop-shadow(0 0 15px rgba(74, 45, 53, 0.4));
+
+  position: relative;
+  z-index: 2;
+}
+.content {
+  background: var(--color-bg-base);
+}

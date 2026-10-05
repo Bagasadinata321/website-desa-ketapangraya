@@ -1,0 +1,1498 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+b {
+  font-weight: bolder;
+  font-size: larger;
+}
+
+body {
+  background: var(--bg-white);
+  cursor: default;
+}
+.side {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: calc(100% - 430px);
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* Sembunyikan di layar kecil */
+@media (max-width: 768px) {
+  .side {
+    display: none;
+  }
+}
+
+/* Foto */
+.side-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: grayscale(20%);
+  transition: transform 8s ease;
+}
+
+.side:hover .side-photo {
+  transform: scale(1.04);
+}
+
+/* Placeholder jika tidak ada foto */
+.side-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(160deg, #1a1814 0%, #2e2519 50%, #1a1814 100%);
+}
+
+/* Gradient overlay bawah */
+.side-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0) 40%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  pointer-events: none;
+}
+
+/* Branding */
+.side-brand {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  pointer-events: none;
+}
+
+.side-brand-script {
+  font-family: "Great Vibes", cursive;
+  font-size: 2.2rem;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  line-height: 1;
+}
+
+.side-brand-tagline {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+#loading-screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-loading); /* bisa disesuaikan */
+  display: flex;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+.loader {
+  margin: auto;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-top: 4px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 10px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+main {
+  width: 100%;
+  max-width: 430px;
+  min-height: 100vh;
+  color: var(--text-black);
+}
+.wrapper {
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+}
+.layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+  overflow-y: auto;
+  /* Firefox */
+  scrollbar-width: none;
+
+  /* IE */
+  -ms-overflow-style: none;
+  visibility: hidden;
+}
+
+/* Chrome, Safari */
+.layer::-webkit-scrollbar {
+  display: none;
+}
+
+/* layer aktif */
+.layer.active {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+#layer1 {
+  color: var(--text-primary);
+}
+.bg {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  background-size: cover;
+  z-index: -2;
+  filter: grayscale(50%);
+}
+
+.overlay-blur {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  background-color: var(--overlay-medium);
+  backdrop-filter: blur(1px);
+}
+.content {
+  padding: 10%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+
+.content-img {
+  aspect-ratio: 3/4;
+  height: 50%;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  border-radius: 5px;
+  border: 7px solid var(--border-light);
+}
+
+.content-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.quote {
+  padding: 0 10%;
+  margin-top: 50px;
+  color: var(--text-black);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.story-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.story-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  max-width: 430px;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  filter: grayscale(30%);
+}
+
+.cmp-panggilan {
+  position: absolute;
+  right: 0px;
+  bottom: -11px;
+  z-index: 100;
+  color: var(--cmp-panggilan-color);
+  font-size: 40px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.story-bg-overlay {
+  max-width: 430px;
+  width: 100%;
+  position: fixed;
+  inset: 0;
+  background: var(--overlay-heavy);
+  z-index: 1;
+  height: 100%;
+}
+
+.bg-overlay {
+  max-width: 430px;
+  width: 100%;
+  position: absolute;
+  inset: 0;
+  background: var(--overlay-light);
+  z-index: 1;
+  height: 100vh;
+}
+
+.story-content {
+  position: relative;
+  z-index: 2;
+  padding: 4rem 1.5rem 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25vh;
+}
+
+.story-main-title {
+  font-size: 3rem;
+  color: var(--text-primary);
+  font-weight: normal;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.story-item {
+  text-align: center;
+  padding: 0rem 0.5rem;
+}
+
+.story-year {
+  font-family: "Playfair Display", serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--text-year);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.story-title {
+  font-size: 2rem;
+  color: var(--text-primary);
+  font-weight: normal;
+  margin-bottom: 1rem;
+}
+
+.story-desc {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.story-line {
+  width: 1px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 1.5rem auto;
+}
+.ucapan-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--bg-dark);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Playfair Display", serif;
+  flex-shrink: 0;
+}
+.story-nav-btn {
+  width: 100%;
+  max-width: 430px;
+  position: fixed;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  z-index: 3;
+}
+
+.story-back,
+.story-next {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.story-back:hover,
+.story-next:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.cm-intro {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: var(--text-black);
+  margin: 20px auto;
+  text-align: center;
+  max-width: 50%;
+}
+
+.cm-image {
+  position: relative;
+  max-height: fit-content;
+  width: 100%;
+  margin: 15px;
+}
+
+.cm-image img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+.cm-intro h2 {
+  font-size: 40px;
+}
+.cm-desc {
+  font-size: 20px;
+  text-align: left;
+}
+.cm-intro .cm-desc p span {
+  font-weight: bolder;
+}
+.mds-btn {
+  margin: 10px;
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: 4px 15px;
+  font-size: 20px;
+  background: var(--bg-dark);
+  border-radius: 6px;
+  transition: transform 0.4s ease;
+}
+.mds-btn:hover {
+  transform: translateY(-5px);
+}
+.ws-intro {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: var(--text-black);
+  margin: 0px;
+  text-align: center;
+  max-width: 70%;
+  margin-bottom: 20px;
+}
+
+.ws-image {
+  position: relative;
+  left: 0;
+  width: 80%;
+  height: 60%;
+}
+
+.ws-image img {
+  width: 100%;
+  object-fit: cover;
+}
+.ws-desc {
+  font-size: 20px;
+  text-align: left;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: lighter;
+  font-family: "Great Vibes", cursive;
+}
+.font-great {
+  font-family: "Great Vibes", cursive;
+}
+.button {
+  margin-top: 10px;
+  background-color: var(--bg-darkest);
+  color: white;
+  border-radius: 3px;
+  padding: 5px 15px;
+  border: none;
+  transition: transform 0.3s ease;
+}
+.button:hover {
+  transform: scale(0.95);
+  background-color: var(--text-primary);
+  color: var(--text-dark);
+}
+.s-ly-2 {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.bg-container {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+
+/* slider tetap di belakang */
+.bg-images {
+  display: flex;
+  height: 100%;
+  transition: transform 0.8s ease;
+  width: 100%;
+}
+
+.bg-images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center; /* opsional: geser sedikit ke kanan */
+  flex-shrink: 0;
+  filter: grayscale(20%);
+}
+
+.countdown-container {
+  background: var(--countdown-bg);
+  backdrop-filter: blur(4px);
+  width: 90%;
+  margin: 10% 5%;
+  border-radius: 10px;
+  border: 1px solid var(--countdown-border);
+  text-align: center;
+  padding: 10px 40px;
+  position: absolute;
+  bottom: 30px;
+  z-index: 2;
+}
+.countdown-container h3 {
+  padding: 0 10px;
+  text-align-last: justify;
+}
+
+.countdown-container h2 {
+  text-align: center;
+}
+.countdown-container h2,
+.countdown-container h3 {
+  margin: 15px 0;
+  color: var(--text-primary);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+.countdown {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: space-between;
+  color: var(--text-primary);
+}
+.countdown div {
+  width: 100%;
+  max-width: 60px;
+  border-radius: 10%;
+  background: var(--countdown-box);
+  padding: 8px;
+  font-size: 16px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 25px 0;
+  padding: 0 10%;
+}
+
+.divider span {
+  flex: 1;
+  height: 3px;
+  background: var(--text-black);
+}
+
+.divider p {
+  margin: 0;
+  font-size: 50px;
+  font-family: "Playfair Display", cursive;
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+.timeline {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.line {
+  left: 50%;
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  background: var(--timeline-track);
+}
+
+.line-fill {
+  width: 100%;
+  height: 0%;
+  background: var(--timeline-fill);
+  transition: height 0.2s ease;
+}
+
+.circle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--circle-bg);
+  border: 4px solid var(--circle-border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  transition: 0.3s;
+  color: var(--circle-color);
+}
+
+/* aktif saat dilewati */
+.circle.active {
+  background: var(--circle-active-bg);
+  color: var(--circle-active-fg);
+  border-color: var(--circle-active-border);
+}
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease forwards;
+}
+
+/* BASE (WAJIB) */
+.fade-item {
+  opacity: 0;
+  transition:
+    opacity 1.3s ease,
+    transform 1.3s ease,
+    filter 1.3s ease;
+}
+
+/* saat aktif */
+.fade-item.show {
+  opacity: 1;
+  transform: none !important;
+  filter: none !important;
+}
+.font-dancing {
+  font-family: "Dancing Script", cursive;
+}
+.save-date {
+  color: var(--text-primary);
+  margin: 10px;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  font-size: 40px;
+  display: none;
+}
+/* ── Section Detail Acara ── */
+.acara-wrapper {
+  height: 100vh;
+  padding: 5vh;
+  background-attachment: scroll;
+  background-size: cover;
+  background-position: center;
+  color: var(--text-primary);
+  padding: 3rem 0rem;
+  position: relative;
+  font-family: "Playfair Display", serif;
+  text-align: center;
+}
+.acara-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--overlay-medium);
+  z-index: 0;
+}
+
+/* Konten harus di atas overlay */
+.acara-wrapper > * {
+  position: relative;
+  z-index: 1;
+}
+/* Tanggal besar di sisi kiri */
+.tanggal-side {
+  position: absolute;
+  padding: 0 0.5rem;
+  top: 50%;
+  height: 100vh;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  background-color: var(--bg-white);
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+}
+
+.tanggal-side span {
+  display: block;
+}
+
+.tanggal-side .tgl-dot {
+  color: #aaa;
+  font-size: 1rem;
+}
+.detail-acara {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+/* Judul acara */
+.acara-title {
+  font-family: "Great Vibes", cursive;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  font-weight: lighter;
+}
+
+/* Detail waktu */
+.acara-waktu {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+
+/* Detail jam */
+.acara-jam {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+/* Nama tempat */
+.acara-tempat {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+
+/* Alamat */
+.acara-alamat {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  color: var(--text-subtle);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  padding: 0 2rem;
+}
+
+/* Divider antar acara */
+.acara-divider {
+  border: none;
+  border-top: 0.5px solid var(--accent);
+  margin: 1.5rem auto;
+  width: 60%;
+}
+
+/* Tombol maps */
+.btn-maps {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid #fff;
+  color: var(--text-primary);
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  text-decoration: none;
+  margin-top: 1rem;
+  transition: background 0.2s;
+}
+
+.btn-maps:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+/* ========================= */
+/* 🔥 OPSI ANIMASI */
+/* ========================= */
+
+/* 1. Fade biasa */
+.anim-fade {
+  opacity: 0;
+}
+
+/* 2. Slide Up (elegant) */
+.anim-slide-up {
+  transform: translateY(20px);
+}
+.anim-slide-down {
+  transform: translateY(-20px);
+}
+/* 3. Slide Left */
+.anim-slide-left {
+  transform: translateX(20px);
+}
+
+/* 4. Slide Right */
+.anim-slide-right {
+  transform: translateX(-40px);
+}
+
+/* 5. Zoom In */
+.anim-zoom {
+  transform: scale(0.8);
+}
+
+/* 6. Zoom Out */
+.anim-zoom-out {
+  transform: scale(1.2);
+}
+
+/* 7. Rotate (subtle luxury) */
+.anim-rotate {
+  transform: rotate(5deg) scale(0.9);
+}
+
+/* 8. Blur Fade (premium banget) */
+.anim-blur {
+  filter: blur(10px);
+  transform: translateY(20px);
+}
+
+/* 9. Flip Up */
+.anim-flip {
+  transform: rotateX(90deg);
+  transform-origin: bottom;
+}
+
+/* 10. Fade + Scale (smooth wedding style) */
+.anim-soft {
+  transform: scale(0.95);
+  opacity: 0;
+}
+.d-1 {
+  animation-delay: 0.4s;
+}
+.d-2 {
+  animation-delay: 0.6s;
+}
+.d-3 {
+  animation-delay: 0.8s;
+}
+.d-4 {
+  animation-delay: 1s;
+}
+.d-5 {
+  animation-delay: 1.2s;
+}
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ── Section Title ── */
+.section-title {
+  font-size: 2.5rem;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: lighter;
+}
+
+/* ── Gallery ── */
+.gallery-section {
+  background: var(--bg-darkest);
+  padding: 3rem 1rem;
+}
+.gallery-grid {
+  columns: 2;
+  column-gap: 6px;
+}
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 6px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto; /* biarkan tinggi mengikuti aslinya */
+  display: block;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* ── Gift ── */
+.gift-section {
+  background: var(--bg-white);
+  padding: 0rem 1.5rem;
+  text-align: center;
+}
+
+.gift-desc {
+  font-size: 0.85rem;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  font-family: "Poppins", sans-serif;
+}
+
+.gift-card {
+  background: var(--text-primary);
+  border: 0.5px solid var(--border-mid);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 0 auto;
+  max-width: 300px;
+}
+
+.gift-bank {
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.gift-rekening {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  color: var(--text-black);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+}
+
+.gift-atas-nama {
+  font-size: 0.85rem;
+  color: var(--text-black);
+  margin-bottom: 1rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.btn-copy {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  transition: background 0.2s;
+}
+
+.btn-copy:hover {
+  background: var(--accent);
+  color: var(--text-black);
+}
+
+/* ── RSVP & Ucapan ── */
+
+.rsvp-section,
+.ucapan-section {
+  background: var(--bg-white);
+  padding: 0rem 1.5rem;
+  text-align: center;
+}
+
+.rsvp-desc,
+.ucapan-desc {
+  font-size: 0.85rem;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.rsvp-form,
+.ucapan-form {
+  border: 0.5px solid var(--border-dark);
+  padding: 1.5rem;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 320px;
+  margin: 0 auto 2rem;
+  border-radius: 16px;
+}
+
+.rsvp-field input,
+.rsvp-field select,
+.rsvp-field textarea {
+  width: 100%;
+  background: var(--bg-input);
+  border: 0.5px solid var(--border-mid);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: black;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.rsvp-field textarea {
+  resize: none;
+}
+
+.rsvp-field select option {
+  background: #2a2a2a;
+}
+
+.btn-rsvp {
+  background: transparent;
+  border: 1px solid #1a1a1a; /* ganti dari #fff */
+  color: var(--text-dark);
+  padding: 10px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  transition: background 0.2s;
+}
+
+.btn-rsvp:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Ucapan list */
+.ucapan-list {
+  color: var(--text-black);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 30px;
+}
+
+.ucapan-list::-webkit-scrollbar {
+  display: none;
+}
+
+.ucapan-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  text-align: left;
+}
+.ucapan-content {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 0.75rem;
+  flex: 1;
+}
+
+.ucapan-nama {
+  font-family: "Playfair Display", serif;
+  font-size: 0.9rem;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}
+
+.ucapan-pesan {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  color: var(--ucapan-pesan-color);
+  line-height: 1.5;
+}
+.gift-card-new {
+  background: var(--bg-dark);
+  border: 0.5px solid var(--accent-muted);
+  border-radius: 16px;
+  padding: 1.5rem;
+  max-width: 280px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.gift-card-new::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 0.5px solid var(--accent-subtle);
+}
+.gift-card-new::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 0.5px solid var(--accent-subtle);
+}
+.gift-bank-new {
+  font-family: "Playfair Display", serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.gift-rek-new {
+  font-size: 1.3rem;
+  letter-spacing: 0.15em;
+  color: var(--text-primary);
+  font-family: "Playfair Display", serif;
+  margin-bottom: 0.25rem;
+}
+.gift-an-new {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 1rem;
+}
+.btn-copy-new {
+  background: transparent;
+  border: 0.5px solid var(--accent);
+  color: var(--accent);
+  padding: 7px 20px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+}
+.sec {
+  padding: 2.5rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.sec-dark {
+  background: var(--bg-darkest);
+  color: var(--text-primary);
+}
+.sec-cream {
+  background: var(--bg-light);
+}
+.sec-gold {
+  background: var(--bg-dark);
+  color: var(--text-primary);
+}
+
+/* ornament garis */
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 0.4rem;
+}
+.ornament span {
+  flex: 1;
+  height: 0.5px;
+  background: currentColor;
+  opacity: 0.25;
+  max-width: 50px;
+}
+.ornament i {
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+/* heading */
+.sec-heading {
+  font-family: "Dancing Script", cursive;
+  font-size: 2.4rem;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 0 0.2rem;
+}
+.sec-sub {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: center;
+  opacity: 0.45;
+  margin-bottom: 1.6rem;
+  font-family: "Poppins", sans-serif;
+}
+/* ── Terima Kasih ── */
+.thanks-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  position: relative;
+  background-attachment: scroll;
+  background-size: cover;
+  background-position: center;
+}
+.thanks-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.8),
+    transparent,
+    rgba(0, 0, 0, 0.8)
+  );
+  z-index: 0;
+}
+.thanks-section > * {
+  position: relative;
+  z-index: 1;
+}
+.thanks-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 6rem);
+}
+.thanks-desc {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.thanks-from {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.thanks-nama {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  font-weight: normal;
+  margin-bottom: 0.5rem;
+}
+
+.thanks-keluarga {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+#dgi-wrap {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  font-family: "Poppins", sans-serif;
+}
+
+#dgi-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    background 0.2s;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+#dgi-btn:hover {
+  background: rgba(0, 0, 0, 0.75);
+  transform: scale(1.08);
+}
+
+#dgi-btn svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.4s ease;
+}
+
+#dgi-btn.open svg {
+  transform: rotate(30deg);
+}
+
+#dgi-swatches {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition:
+    max-height 0.35s ease,
+    opacity 0.25s ease;
+  pointer-events: none;
+}
+
+#dgi-swatches.open {
+  max-height: 200px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dgi-swatch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.dgi-swatch:hover {
+  transform: translateX(-3px);
+}
+
+.dgi-swatch-label {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(6px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  pointer-events: none;
+}
+
+.dgi-swatch:hover .dgi-swatch-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.dgi-swatch-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.dgi-swatch:hover .dgi-swatch-dot {
+  transform: scale(1.15);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.dgi-swatch-dot.active {
+  border-color: white;
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.4);
+  transform: scale(1.1);
+}
+
+/* ── Wedding Story Default Section ── */
+.ws-section {
+  padding: 60px 0px;
+  text-align: center;
+}
+
+.ws-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 2.5rem;
+}
+
+/* Timeline wrapper */
+.ws-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* Garis vertikal */
+.ws-timeline::before {
+  content: "";
+  position: absolute;
+  left: 52px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--accent) 20%,
+    var(--accent) 80%,
+    transparent
+  );
+}
+
+/* Item */
+.ws-item {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 0 16px;
+  padding-bottom: 2rem;
+  position: relative;
+}
+
+.ws-item:last-child {
+  padding-bottom: 0;
+}
+
+/* Tahun */
+.ws-year {
+  font-family: var(--font-serif);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  padding-top: 4px;
+  text-align: center;
+  padding-right: 0;
+  line-height: 1.4;
+}
+
+/* Body kanan */
+.ws-body {
+  position: relative;
+  padding-left: 16px;
+}
+
+/* Titik di garis */
+.ws-dot {
+  position: absolute;
+  left: -22px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg-light);
+  box-shadow: 0 0 0 2px var(--accent-muted);
+}
+
+.ws-title {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--text-dark);
+  margin-bottom: 0.3rem;
+  line-height: 1.2;
+}
+
+.ws-desc {
+  font-size: 0.8rem;
+  line-height: 1.8;
+  color: var(--text-mid, #5c4a32);
+  padding-right: 30px;
+}

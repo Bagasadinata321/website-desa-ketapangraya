@@ -1,0 +1,104 @@
+/* ============================================================
+   DIGINVITE — TEMA 3: Dusk Blue
+   Biru malam, tenang, elegan. Aksen perak & biru terang.
+   Target: pasangan yang ingin kesan modern, kalem & berbeda.
+   ============================================================ */
+
+:root {
+  /* Aksen */
+  --accent: #7eb8d4;
+  --accent-muted: #7eb8d455;
+  --accent-subtle: #7eb8d420;
+  --accent-hover-bg: #7eb8d4;
+  --accent-hover-fg: #0a1520;
+
+  /* Background — biru tua dalam, seperti langit malam */
+  --bg-loading: #060d14;
+  --bg-darkest: #0a1520;
+  --bg-dark: #0f1e2e;
+  --bg-light: #152535;
+  --bg-white: #152535;
+  --bg-input: #1e3045;
+  --bg-card: #142030;
+
+  /* Overlay */
+  --overlay-heavy: rgba(6, 13, 20, 0.82);
+  --overlay-medium: rgba(6, 13, 20, 0.68);
+  --overlay-light: rgba(6, 13, 20, 0.25);
+
+  /* Teks */
+  --text-primary: #e8f4fc;
+  --text-secondary: #a8cfe0;
+  --text-muted: #5a8fa8;
+  --text-subtle: #88b8d0;
+  --text-dark: #e8f4fc;
+  --text-black: #7eb8d4;
+  --text-year: rgba(126, 184, 212, 0.1);
+
+  /* Border */
+  --border-light: rgba(126, 184, 212, 0.3);
+  --border-dark: rgba(126, 184, 212, 0.1);
+  --border-mid: #1e3a50;
+
+  /* Timeline */
+  --timeline-track: #1e3a50;
+  --timeline-fill: #7eb8d4;
+  --circle-bg: #0f1e2e;
+  --circle-border: #7eb8d4;
+  --circle-color: #7eb8d4;
+  --circle-active-bg: #7eb8d4;
+  --circle-active-fg: #0a1520;
+  --circle-active-border: #5a9ab8;
+
+  /* Tanggal side */
+  --tanggal-bg: #7eb8d4;
+  --tanggal-fg: #0a1520;
+  --tanggal-dot: rgba(10, 21, 32, 0.4);
+
+  /* Countdown */
+  --countdown-bg: rgba(10, 21, 32, 0.7);
+  --countdown-box: rgba(15, 30, 46, 0.8);
+  --countdown-border: #7eb8d4;
+
+  /* Ucapan */
+  --ucapan-avatar-bg: #0f1e2e;
+  --ucapan-avatar-border: #7eb8d4;
+  --ucapan-avatar-fg: #7eb8d4;
+  --ucapan-content-bg: #142030;
+  --ucapan-nama-color: #7eb8d4;
+  --ucapan-pesan-color: #a8cfe0;
+
+  /* Gift card */
+  --gift-card-bg: #0f1e2e;
+  --gift-card-border: #7eb8d455;
+  --gift-deco-border: #7eb8d420;
+  --gift-bank-color: #7eb8d4;
+  --gift-rek-color: #e8f4fc;
+  --gift-an-color: #5a8fa8;
+
+  /* Section backgrounds */
+  --sec-dark-bg: #0a1520;
+  --sec-dark-fg: #e8f4fc;
+  --sec-cream-bg: #0f1e2e;
+  --sec-gold-bg: #0a1520;
+  --sec-gold-fg: #e8f4fc;
+
+  /* Section title */
+  --section-title-color: #e8f4fc;
+
+  /* Gallery */
+  --gallery-bg: #060d14;
+
+  /* RSVP & Ucapan section */
+  --rsvp-section-bg: #0f1e2e;
+  --rsvp-desc-color: #e8f4fc;
+  --rsvp-input-bg: #1e3045;
+  --rsvp-input-border: #7eb8d4;
+  --rsvp-input-color: #e8f4fc;
+  --rsvp-btn-border: #7eb8d4;
+  --rsvp-btn-color: #7eb8d4;
+
+  /* Dekorasi */
+  --cmp-panggilan-color: #7eb8d4;
+  --divider-line-color: #7eb8d4;
+}

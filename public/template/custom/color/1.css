@@ -1,0 +1,103 @@
+/* ============================================================
+   DIGINVITE — TEMA 1: Elegant Dark (Gold)
+   Tema asli. Mewah, gelap, aksen emas.
+   ============================================================ */
+
+:root {
+  /* Aksen */
+  --accent: #c3b900;
+  --accent-muted: #c3b90055;
+  --accent-subtle: #c3b90022;
+  --accent-hover-bg: #c3b900;
+  --accent-hover-fg: #000000;
+
+  /* Background */
+  --bg-loading: #000000;
+  --bg-darkest: #111111;
+  --bg-dark: #1a1814;
+  --bg-light: #faf9f7;
+  --bg-white: #ffffff;
+  --bg-input: #ececec;
+  --bg-card: #2a2a2a;
+
+  /* Overlay */
+  --overlay-heavy: rgba(0, 0, 0, 0.7);
+  --overlay-medium: rgba(0, 0, 0, 0.6);
+  --overlay-light: rgba(0, 0, 0, 0.2);
+
+  /* Teks */
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-muted: #888888;
+  --text-subtle: #bbbbbb;
+  --text-dark: #1a1a1a;
+  --text-black: #000000;
+  --text-year: rgba(255, 255, 255, 0.12);
+
+  /* Border */
+  --border-light: rgba(255, 255, 255, 0.3);
+  --border-dark: rgba(0, 0, 0, 0.4);
+  --border-mid: #444444;
+
+  /* Timeline */
+  --timeline-track: #cccccc;
+  --timeline-fill: #000000;
+  --circle-bg: #ffffff;
+  --circle-border: #999999;
+  --circle-color: #999999;
+  --circle-active-bg: #000000;
+  --circle-active-fg: #ffffff;
+  --circle-active-border: #3b3b3b;
+
+  /* Tanggal side */
+  --tanggal-bg: #ffffff;
+  --tanggal-fg: #000000;
+  --tanggal-dot: #aaaaaa;
+
+  /* Countdown */
+  --countdown-bg: rgba(79, 79, 79, 0.5);
+  --countdown-box: rgba(61, 61, 61, 0.6);
+  --countdown-border: #000000;
+
+  /* Ucapan */
+  --ucapan-avatar-bg: #1a1814;
+  --ucapan-avatar-border: #c3b900;
+  --ucapan-avatar-fg: #c3b900;
+  --ucapan-content-bg: #2a2a2a;
+  --ucapan-nama-color: #c3b900;
+  --ucapan-pesan-color: #dddddd;
+
+  /* Gift card */
+  --gift-card-bg: #1a1814;
+  --gift-card-border: #c3b90055;
+  --gift-deco-border: #c3b90022;
+  --gift-bank-color: #c3b900;
+  --gift-rek-color: #ffffff;
+  --gift-an-color: #888888;
+
+  /* Section backgrounds */
+  --sec-dark-bg: #111111;
+  --sec-dark-fg: #ffffff;
+  --sec-cream-bg: #faf9f7;
+  --sec-gold-bg: #1a1814;
+  --sec-gold-fg: #ffffff;
+
+  /* Section title */
+  --section-title-color: #1a1a1a;
+
+  /* Gallery */
+  --gallery-bg: #111111;
+
+  /* RSVP & Ucapan section */
+  --rsvp-section-bg: #ffffff;
+  --rsvp-desc-color: #1a1a1a;
+  --rsvp-input-bg: #ececec;
+  --rsvp-input-border: #444444;
+  --rsvp-input-color: #000000;
+  --rsvp-btn-border: #1a1a1a;
+  --rsvp-btn-color: #1a1a1a;
+
+  /* Dekorasi */
+  --cmp-panggilan-color: #df9f1d;
+  --divider-line-color: #000000;
+}

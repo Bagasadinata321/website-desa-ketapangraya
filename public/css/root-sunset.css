@@ -1,0 +1,13 @@
+/* root-sunset.css — jingga senja pantai */
+[data-theme="sunset"] {
+  --clr-primary: #a15a2c;
+  --clr-primary-light: #c17843;
+  --clr-primary-dark: #723e1c;
+  --clr-secondary: #d1a35a;
+  --clr-secondary-light: #e3c48c;
+  --clr-secondary-dark: #a67a2e;
+  --clr-bg: #faf5ef;
+  --clr-surface: #ffffff;
+  --clr-section: #f3e8db;
+  --clr-footer: #3d2210;
+}

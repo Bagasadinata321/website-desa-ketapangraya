@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Mencegah Google meng-crawl halaman admin & otentikasi
+Disallow: /admin/
+Disallow: /login
+Disallow: /logout
+Disallow: /register
+Disallow: /login-process
+Disallow: /register-submit
+
+# Lokasi Sitemap XML Dinamis Anda
+Sitemap: https://namadomainanda.com/sitemap.xml

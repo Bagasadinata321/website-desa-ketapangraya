@@ -1,0 +1,22 @@
+/* root-dark.css — mode gelap */
+[data-theme="dark"] {
+/* Aksen — satu-satunya warna berwarna di tema ini */
+  --clr-primary: #3ea8a4;
+  --clr-primary-light: #63c2be;
+  --clr-primary-dark: #2b7a76;
+
+  /* Netral keperakan untuk elemen sekunder (eyebrow, quote mark, angka statistik) */
+  --clr-secondary: #c9c9c9;
+  --clr-secondary-light: #e5e5e5;
+  --clr-secondary-dark: #9a9a9a;
+
+  /* Grayscale murni — tanpa hue sama sekali */
+  --clr-bg: #141414;
+  --clr-surface: #1c1c1c;
+  --clr-section: #202020;
+  --clr-footer: #0a0a0a;
+  --clr-text: #ededed;
+  --clr-text-light: #a8a8a8;
+  --clr-border: #2e2e2e;
+  --clr-border-dark: #3d3d3d;
+}

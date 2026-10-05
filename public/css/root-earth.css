@@ -1,0 +1,13 @@
+/* root-earth.css — terracotta / tanah liat */
+[data-theme="earth"] {
+  --clr-primary: #1f5c86;
+  --clr-primary-light: #3c7fac;
+  --clr-primary-dark: #143d5c;
+  --clr-secondary: #e0a13d;
+  --clr-secondary-light: #f0c377;
+  --clr-secondary-dark: #ad7620;
+  --clr-bg: #f5f9fb;
+  --clr-surface: #ffffff;
+  --clr-section: #eaf2f6;
+  --clr-footer: #0f2c40;
+}

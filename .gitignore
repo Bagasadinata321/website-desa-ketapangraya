@@ -1,0 +1,12 @@
+# Abaikan semua file upload lokal
+/public/uploads/*
+!/public/uploads/.gitkeep
+
+# Abaikan file konfigurasi database sensitif
+/config/database.php
+/app/core/database.php
+
+# System junk files
+*.log
+.DS_Store
+Thumbs.db
